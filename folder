@@ -1,0 +1,24 @@
+#!/bin/bash
+if [ $# -lt 1 ] #scan the number of given argument
+then
+	echo "Usage: $0 <option>"
+	exit
+fi
+
+if [ -d $1 ]
+then
+	echo "The directory $1 is existed, create another name"
+	exit
+fi
+
+mkdir $1 2>>/dev/null #redirect the errors to blackhole
+echo "Folder $1 is successfully created!"
+echo "Do you want to ls?"
+echo "1)Yes"
+echo "2)No"
+read answer
+
+case $answer in
+	1)ls -l;;
+	2)exit;;
+esac

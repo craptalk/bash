@@ -1,0 +1,18 @@
+#!/bin/bash
+
+FILE=/etc/services
+if [ $# -lt 1 ]
+then
+	echo "Usage: $0 <well-known ports>"
+	exit
+fi
+
+echo "Do you want to check service port[y/n]:"
+read ANSWER
+if [ $ANSWER == "y" ]
+then
+	cat $FILE | grep -w $1 2>/dev/null
+else
+	exit
+fi
+exit 0
