@@ -40,13 +40,13 @@ case $answer in
 		  read pass
 	  echo -en "${BGreen}Connecting to $ssid.....\n"
 	  nmcli device wifi connect $ssid password $pass 2>/dev/null
-	  if [ $? = 0 ]; 
+	  if [ $? -eq 0 ]; 
 	  then
     		echo -en "${Blue}Connected!!\n\n\n"
 	  else
 		echo -en "${BRed}Failed to connect!!!"
   	  fi;;
-	3)if [ $? = 0 ];
+	3)if [ $? -eq 0 ];
 	  then echo "Exiting...."
 	  fi;;
 esac
