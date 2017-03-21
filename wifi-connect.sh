@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#################################################
+#	AUTHOR: https://github.com/craptalk	#
+#################################################
+
 Blue='\e[0;34m'
 BPurple='\e[1;35m'
 BCyan='\e[1;36m'
@@ -47,7 +51,7 @@ case $answer in
 		echo -n "Enter passphrase:"
 		read -s pass
 	  done
-	  echo -en "${BGreen}Connecting to $ssid.....\n"
+	  echo -en "\n\n\n${BGreen}Connecting to $ssid.....\n"
 	  nmcli device wifi connect $ssid password $pass 2>/dev/null
 	  if [ $? -eq 0 ]; 
 	  then
@@ -55,7 +59,7 @@ case $answer in
 	  else
 		echo -en "${BRed}Failed to connect\n\n\n!!!"
   	  fi;;
-	3)if [ $? -eq 0 ];
+	3)if [[ $? -eq 0 ]];
 	  then echo "Exiting...."
 	  fi;;
 esac
